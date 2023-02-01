@@ -16,34 +16,42 @@ room-number,use,sq-ft,price
 '''
 
 
-
-
-datastore = { "medical":[
-      { "room-number": 100,
-        "use": "reception",
+datastore = {"medical": [
+    {"room-number": 100,
+     "use": "reception",
         "sq-ft": 50,
         "price": 75
-      },
-      { "room-number": 101,
-        "use": "waiting",
+     },
+    {"room-number": 101,
+     "use": "waiting",
         "sq-ft": 250,
         "price": 75
-      },
-      { "room-number": 102,
-        "use": "examination",
+     },
+    {"room-number": 102,
+     "use": "examination",
         "sq-ft": 125,
         "price": 150
-      },
-      { "room-number": 103,
-        "use": "examination",
+     },
+    {"room-number": 103,
+     "use": "examination",
         "sq-ft": 125,
         "price": 150
-      },
-      { "room-number": 104,
-        "use": "office",
+     },
+    {"room-number": 104,
+     "use": "office",
         "sq-ft": 150,
         "price": 100
-      }
+     }
 
-      ]
+]
 }
+
+outfile = open('retail_space.csv', "w")
+outfile.write("room-number,use,sq-ft,price\n")
+# medical is a list of dictionaries (those dicts being room-number, use, sq-ft, and price)
+list1 = datastore["medical"]
+# now iterate through each dictionary and print out the specific value for that room-number (the unqiue identifier)
+for i in list1:
+    outfile.write(str(i['room-number'])+','+str(i['use']) +
+                  ','+str(i['sq-ft'])+','+str(i['price'])+'\n')
+outfile.close()
