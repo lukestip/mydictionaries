@@ -7,8 +7,9 @@ NOTE: No hard-coding allowed except for keys for the dictionaries
 
 1) print out the number of earthquakes
 '''
-with open('eq_data.json') as eq_data_open:
-    eq_data = json.load(eq_data_open)
+
+infile = open('eq_data.json', 'r')
+eq_data = json.load(infile)
 
 eq_count = 0
 for i in eq_data["features"]:
